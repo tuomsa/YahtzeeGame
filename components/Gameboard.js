@@ -3,9 +3,10 @@ import { Text, View,Pressable } from 'react-native';
 import Header from "./Header";
 import Footer from "./Footer";
 import style from '../style/style.js';
-import { NBR_OF_DICES,NBR_OF_THROWS,MIN_SPOT,MAX_SPOT,BONUS_POINTS_LIMIT,BONUS_POINTS } from "../constants/Game";
+import { NBR_OF_DICES,NBR_OF_THROWS,MIN_SPOT,MAX_SPOT,BONUS_POINTS_LIMIT,BONUS_POINTS, SCOREBOARD_KEY } from "../constants/Game";
 import { Container, Row, Col } from 'react-native-flex-grid';
 import MaterialCommynityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 let board = [];
 
@@ -23,12 +24,21 @@ export default Gameboard =({navigation , route}) =>{
     const [selectedDicePoints,setSelectedDicePoints] = useState(new Array(MAX_SPOT).fill(false));
     //Kerätyt pisteet?
     const [dicePointsTotal,setDicePointsTotal] = useState(new Array(MAX_SPOT).fill(0));
+    //Tulostaulu pisteet?
+    const [scores,setScores] = useState ([]);
 
     useEffect(() => {
         if (playerName === '' && route.params?.player) {
             setPlayerName(route.params.player);
         }
     },[]);
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            getScoreboardData();
+        });
+        return unsubscribe;
+    },[navigation]);
 
     const dicesRow = [];
     for (let dice = 0; dice < NBR_OF_DICES; dice++ ) {
@@ -103,6 +113,43 @@ export default Gameboard =({navigation , route}) =>{
             setStatus('Throw ' + NBR_OF_THROWS + ' times before setting points');
         }}
 
+        const savePlayerPoints = async() => {
+            const newKey = scores.length + 1;
+            const playerPoints = {
+                key:newKey,
+                name:playerName,
+                date:'pvm',
+                time:'time',
+                points:0
+
+
+            }
+            try {
+                const newScore = [...scores, playerPoints];
+                const jsonValue = JSON.stringify(newScore);
+                 await AsyncStorage.setItem(SCOREBOARD_KEY, jsonValue);
+            }
+            catch  (e) {
+                console.log ('error' + e);
+            }
+        }
+
+
+        const getScoreboardData = async() => {
+            try {
+                const jsonValue = await AsyncStorage.getItem(SCOREBOARD_KEY);
+                if(jsonValue !== null) {
+                    let tmpScores = JSON.parse(jsonValue);
+                    setScores(tmpScores);
+                }
+            }
+            catch(e){
+                console.log('error reading' + e);
+            }
+            
+        }
+
+        
 
     const throwDices = () => {
         if(nbrOfThrowsLeft === 0 && !gameEndStatus){
@@ -172,6 +219,10 @@ export default Gameboard =({navigation , route}) =>{
     <Container fluid>
         <Row>{pointsToSelectRow}</Row>
     </Container>
+
+    <Pressable onPress={() => savePlayerPoints()}>
+        <Text>Save My Points!</Text>
+    </Pressable>
     <Text> Player: {playerName}</Text>
 </View>
 <Footer/>

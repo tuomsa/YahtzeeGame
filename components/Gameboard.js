@@ -28,6 +28,13 @@ export default Gameboard =({navigation , route}) =>{
     const [scores,setScores] = useState ([]);
 
     useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            getScoreboardData();
+        });
+        return unsubscribe;
+    },[navigation]);
+
+    useEffect(() => {
         if (playerName === '' && route.params?.player) {
             setPlayerName(route.params.player);
         }

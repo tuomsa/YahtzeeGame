@@ -86,7 +86,7 @@ export default Gameboard =({navigation , route}) =>{
         if(nbrOfThrowsLeft === 0) {
         let selectedPoints = [...selectedDicePoints];
         let points = [...dicePointsTotal];
-        if (!selectedPoints) {
+        if (!selectedPoints[i]) {
         selectedPoints[i] = true;
         let nbrOfDices = diceSpots.reduce((total, x) => (x === (i + 1) ? total + 1: total),0);
         points [i] = nbrOfDices * (i + 1);
@@ -100,7 +100,7 @@ export default Gameboard =({navigation , route}) =>{
         return points[i];
         }
         else {
-            setStatus('Throw' + NBR_OF_THROWS + ' times before setting points');
+            setStatus('Throw ' + NBR_OF_THROWS + ' times before setting points');
         }}
 
 

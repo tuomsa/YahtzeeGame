@@ -74,7 +74,7 @@ const clearScoreboard = async() => {
         </View>
         <View>
             <Pressable  style={style.button} onPress={() => clearScoreboard()}>
-                <Text>Clear Scoreboard</Text>
+                <Text style={style.buttonText}>Clear Scoreboard</Text>
             </Pressable>
         </View>
         <Footer/>

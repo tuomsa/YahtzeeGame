@@ -4,16 +4,28 @@ import Scoreboard from './components/Scoreboard';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
+import { useEffect } from 'react';
+import * as Font from 'expo-font';
 
 const Tab = createBottomTabNavigator();
+const fetchFonts = async () => {
+  await Font.loadAsync({
+    'RubikBubbles' : require ('./assets/fonts/RubikBubbles-Regular.ttf')
+  })
+}
 
 export default function App() {
+
+  useEffect(() => {
+    fetchFonts();
+  },[]);
+
   return (
     <NavigationContainer>
     <Tab.Navigator
       initialRouteName="Home"
       sceneContainerStyle={{backgroundColor: 'transparent'}}
-      screenOptions={({ route}) => ({
+      screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size }) => {
           let iconName;
           if (route.name === 'Home'){

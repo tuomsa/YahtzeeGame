@@ -15,11 +15,13 @@ import { StyleSheet } from 'react-native';
     
     
     
+    
    
   },
   texts : {
-    fontSize: 15,
+    fontSize: 13,
     padding:10,
+    fontFamily:'RubikBubbles',
 
 
   },
@@ -35,6 +37,7 @@ import { StyleSheet } from 'react-native';
     fontSize:20,
     color:'green',
     textAlign:'center',
+    fontFamily:'RubikBubbles',
   },
   header: {
     marginTop: 30,
@@ -53,9 +56,10 @@ import { StyleSheet } from 'react-native';
     color: '#fff',
     fontWeight: 'bold',
     flex: 1,
-    fontSize: 30,
+    fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    fontFamily:'RubikBubbles',
     
   },
   author: {
@@ -65,6 +69,7 @@ import { StyleSheet } from 'react-native';
     fontSize: 20,
     textAlign: 'center',
     margin: 10,
+    fontFamily:'RubikBubbles',
   },
   gameboard: {
     backgroundColor: '#fff',
@@ -101,7 +106,8 @@ import { StyleSheet } from 'react-native';
   buttonText: {
     color:"#2B2B52",
     fontSize: 20,
-    fontWeight:'bold'
+    fontWeight:'bold',
+    fontFamily: 'RubikBubbles',
   }
 });
 export default style;

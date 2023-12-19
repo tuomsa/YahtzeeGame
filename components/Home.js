@@ -24,9 +24,10 @@ export default Home = ({navigation}) => {
         <Header/>
         <View>
             <MaterialCommunityIcons
-            name='information'
+            name='information-variant'
             size = {150}
             color='pink'
+            
             
             />
             {!hasPlayerName ?
@@ -34,17 +35,16 @@ export default Home = ({navigation}) => {
             <Text style={style.texts}> Enter name for scoreboard:</Text>
             <TextInput style={style.textInputs} onChangeText={setPlayerName} autoFocus={true}/>
             <Pressable  style={style.button} onPress={() => handlePlayerName(playerName)}> 
-            <Text style={style.buttonText}> LETS GO!</Text>
+            <Text> LETS GO!</Text>
             </Pressable>
              </>
              :
              <>
-             <Text>Game Rules:</Text>
+             <Text style={style.textsBig}>Game Rules:</Text>
              <Text multiline ={true} style={style.texts} > Rules of the game
 THE GAME: Upper section of the classic Yahtzee 
 dice game. You have {NBR_OF_DICES} dices and 
-for the every dice you have {NBR_OF_THROWS} 
-throws. After each throw you can keep dices in 
+for the every dice you have {NBR_OF_THROWS} throws. After each throw you can keep dices in 
 order to get same dice spot counts as many as 
 possible. In the end of the turn you must select 
 your points from {MIN_SPOT} to {MAX_SPOT}. 

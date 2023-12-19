@@ -220,7 +220,7 @@ export default Gameboard =({navigation , route}) =>{
         <>
 <Header/>
 <View>
-    <Text>GAMEBOARDHERES</Text>
+    <View></View>
     <Container fluid>
         <Row>{dicesRow}</Row>
     </Container>

@@ -32,15 +32,15 @@ export default Home = ({navigation}) => {
             />
             {!hasPlayerName ?
             <>
-            <Text style={style.texts}> Enter name for scoreboard:</Text>
+            <Text style={style.textsBig}> Enter name for scoreboard:</Text>
             <TextInput style={style.textInputs} onChangeText={setPlayerName} autoFocus={true}/>
             <Pressable  style={style.button} onPress={() => handlePlayerName(playerName)}> 
-            <Text> LETS GO!</Text>
+            <Text style={style.buttonText} > LETS GO!</Text>
             </Pressable>
              </>
              :
              <>
-             <Text style={style.textsBig}>Game Rules:</Text>
+             <Text style={style.textsBig}> Game Rules: </Text>
              <Text multiline ={true} style={style.texts} > Rules of the game
 THE GAME: Upper section of the classic Yahtzee 
 dice game. You have {NBR_OF_DICES} dices and 

@@ -4,21 +4,34 @@ import Scoreboard from './components/Scoreboard';
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import * as Font from 'expo-font';
 
 const Tab = createBottomTabNavigator();
-const fetchFonts = async () => {
-  await Font.loadAsync({
-    'RubikBubbles' : require ('./assets/fonts/RubikBubbles-Regular.ttf')
-  })
-}
+
+
 
 export default function App() {
+
+  const [fontLoaded, setFontLoaded] = useState(false);
+
+
+  const fetchFonts = async () => {
+    await Font.loadAsync({
+      'RubikBubbles' : require ('./assets/fonts/RubikBubbles-Regular.ttf'),
+
+    });
+    setFontLoaded(true);
+  };
+  
 
   useEffect(() => {
     fetchFonts();
   },[]);
+  if (!fontLoaded) {
+    
+    return null;
+  }
 
   return (
     <NavigationContainer>

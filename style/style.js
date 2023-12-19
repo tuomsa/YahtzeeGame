@@ -31,7 +31,9 @@ import { StyleSheet } from 'react-native';
     borderWidth: 5,
     borderColor:'pink',
     fontSize:40,
-    color: 'green'
+    color: 'green',
+    
+    alignSelf:'center',
   },
   textsBig: {
     fontSize:20,

@@ -18,6 +18,10 @@ import { StyleSheet } from 'react-native';
     
    
   },
+  infoLogo: {
+    alignItems:'center',
+    flexDirection:'row'
+  },
   texts : {
     fontSize: 13,
     padding:10,
@@ -32,12 +36,12 @@ import { StyleSheet } from 'react-native';
     borderColor:'pink',
     fontSize:40,
     color: 'green',
-    
+    fontFamily:'RubikBubbles',
     alignSelf:'center',
   },
   textsBig: {
     fontSize:20,
-    color:'green',
+    color:'lightgreen',
     textAlign:'center',
     fontFamily:'RubikBubbles',
   },

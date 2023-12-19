@@ -23,13 +23,23 @@ export default Home = ({navigation}) => {
         <>
         <Header/>
         <View>
+            <View style={style.infoLogo}>
             <MaterialCommunityIcons
             name='information-variant'
             size = {150}
             color='pink'
-            
-            
             />
+            <MaterialCommunityIcons
+            name='information-variant'
+            size = {150}
+            color='pink'
+            />
+            <MaterialCommunityIcons
+            name='information-variant'
+            size = {150}
+            color='pink'
+            />
+            </View>
             {!hasPlayerName ?
             <>
             <Text style={style.textsBig}> Enter name for scoreboard:</Text>

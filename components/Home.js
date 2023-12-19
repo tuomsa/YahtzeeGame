@@ -25,21 +25,22 @@ export default Home = ({navigation}) => {
         <View>
             <MaterialCommunityIcons
             name='information'
-            size = {90}
-            color='steelblue'
+            size = {150}
+            color='pink'
+            
             />
             {!hasPlayerName ?
             <>
-            <Text> Enter name for scoreboard:</Text>
-            <TextInput onChangeText={setPlayerName} autoFocus={true}/>
-            <Pressable onPress={() => handlePlayerName(playerName)}> 
-            <Text> OKKKEY</Text>
+            <Text style={style.texts}> Enter name for scoreboard:</Text>
+            <TextInput style={style.textInputs} onChangeText={setPlayerName} autoFocus={true}/>
+            <Pressable  style={style.button} onPress={() => handlePlayerName(playerName)}> 
+            <Text style={style.buttonText}> LETS GO!</Text>
             </Pressable>
              </>
              :
              <>
              <Text>Game Rules:</Text>
-             <Text multiline ={true}> Rules of the game
+             <Text multiline ={true} style={style.texts} > Rules of the game
 THE GAME: Upper section of the classic Yahtzee 
 dice game. You have {NBR_OF_DICES} dices and 
 for the every dice you have {NBR_OF_THROWS} 
@@ -47,20 +48,20 @@ throws. After each throw you can keep dices in
 order to get same dice spot counts as many as 
 possible. In the end of the turn you must select 
 your points from {MIN_SPOT} to {MAX_SPOT}. 
+</Text>
+<Text style={style.texts} >
 Game ends when all points have been selected. 
 The order for selecting those is free.
 POINTS: After each turn game calculates the sum 
 for the dices you selected. Only the dices having 
 the same spot count are calculated. Inside the 
-game you can not select same points from 
-{MIN_SPOT} to {MAX_SPOT} again.
-GOAL: To get points as much as possible. 
-{BONUS_POINTS_LIMIT} points is the limit of 
-getting bonus which gives you {BONUS_POINTS} 
-points more.</Text>
-             <Text> Good luck, {playerName} </Text>
-             <Pressable onPress={() => navigation.navigate('Gameboard', {player: playerName})}>
-                <Text>PLAY</Text>
+game you can not select same points from {MIN_SPOT} to {MAX_SPOT} again.</Text> 
+<Text style={style.texts} >
+GOAL: To get points as much as possible. {BONUS_POINTS_LIMIT} points is the limit of 
+getting bonus which gives you {BONUS_POINTS} points more.</Text>
+             <Text style={style.textsBig} > Have fun, {playerName} !! </Text>
+             <Pressable  style={style.button} onPress={() => navigation.navigate('Gameboard', {player: playerName})}>
+                <Text style={style.buttonText}>PLAY</Text>
              </Pressable>
             </>
             }

@@ -33,7 +33,7 @@ const getScoreBoardData = async() => {
 
 useEffect(() => {
     const unsubscribe = navigation.addListener('focus',() => {
-        getScoreBoardData
+        getScoreBoardData();
     });
     return unsubscribe;
 },[navigation]);
@@ -55,9 +55,9 @@ const clearScoreboard = async() => {
      <>
         <Header/>
         <View>
-        <Text>SCOREBOARDS</Text>
+        <Text style={style.textsBig} >HIGH SCORES:</Text>
         {scores.length === 0 ?
-        <Text>Scoreboard is empty</Text>
+        <Text>Scoreboard is currently empty</Text>
         :
         scores.map((player, index) => (
             index < NBR_OF_SCOREBOARD_ROWS &&
@@ -73,7 +73,7 @@ const clearScoreboard = async() => {
         }
         </View>
         <View>
-            <Pressable onPress={() => clearScoreboard()}>
+            <Pressable  style={style.button} onPress={() => clearScoreboard()}>
                 <Text>Clear Scoreboard</Text>
             </Pressable>
         </View>

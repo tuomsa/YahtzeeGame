@@ -1,8 +1,6 @@
 import Home from './components/Home';
 import Gameboard from './components/Gameboard';
 import Scoreboard from './components/Scoreboard';
-
-
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
@@ -20,18 +18,18 @@ export default function App() {
           let iconName;
           if (route.name === 'Home'){
             iconName = focused
-            ? 'information'
-            : 'information-outline'
+            ? 'home-variant'
+            : 'home-outline'
           }
           else if (route.name === 'Gameboard') {
             iconName = focused
-            ? 'dice-multiple'
-            : 'dice-multiple-outline'
+            ? 'gamepad-variant'
+            : 'gamepad-variant-outline'
           }
           else if (route.name === 'Scoreboard' ) {
             iconName = focused
-            ? 'information'
-            : 'information-outline'
+            ? 'ballot'
+            : 'ballot-outline'
           }
           return <MaterialCommunityIcons
           name={iconName}

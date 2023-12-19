@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 
 
 
-const style = StyleSheet.create({
+ const style = StyleSheet.create({
 
   
   container: {
@@ -14,16 +14,33 @@ const style = StyleSheet.create({
     backgroundColor: '#fff',
     
     
+    
    
+  },
+  texts : {
+    fontSize: 15,
+    padding:10,
+
+
+  },
+  textInputs: {
+    height: 50,
+    width: 200,
+    borderWidth: 5,
+    borderColor:'pink',
+    fontSize:40,
+    color: 'green'
+  },
+  textsBig: {
+    fontSize:20,
+    color:'green',
+    textAlign:'center',
   },
   header: {
     marginTop: 30,
     marginBottom: 15,
     backgroundColor: 'pink',
     flexDirection: 'row',
-    
-    
-    
     
   },
   footer: {
@@ -32,18 +49,20 @@ const style = StyleSheet.create({
     flexDirection: 'row'
   },
   title: {
+   
     color: '#fff',
     fontWeight: 'bold',
     flex: 1,
-    fontSize: 23,
+    fontSize: 30,
     textAlign: 'center',
     margin: 10,
+    
   },
   author: {
     color: '#fff',
     fontWeight: 'bold',
     flex: 1,
-    fontSize: 15,
+    fontSize: 20,
     textAlign: 'center',
     margin: 10,
   },
@@ -67,18 +86,24 @@ const style = StyleSheet.create({
     flexDirection: "row"
   },
   button: {
-    margin: 30,
+    margin: 50,
     flexDirection: "row",
-    padding: 10,
+    padding: 20,
     backgroundColor: "azure",
-    width: 150,
-    borderRadius: 15,
+    width: 'auto',
+    borderWidth:2,
+    borderColor:'black',
+    borderRadius: 100,
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    
   },
   buttonText: {
     color:"#2B2B52",
-    fontSize: 20
+    fontSize: 20,
+    fontWeight:'bold'
   }
 });
 export default style;
+
+
